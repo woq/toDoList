@@ -1,27 +1,26 @@
 <template>
-  <h1>init success</h1>
+  <TodoList></TodoList>
 </template>
 
 <script>
+import TodoList from "./components/TodoList.vue";
 export default{
   name: 'app',
-  data(){
-    return{
-      a: 'x',
-    }
-  }
+  components: {TodoList},
 }
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
+,
+methods:{
+toggleFinish(recycleItem){
+this.items.map((item,index)=>{
+if (item.id === recycleItem.id){
+this.items.splice(index, 1);
+}
+})
+}
+}
+@click="toggleFinish(item)"
