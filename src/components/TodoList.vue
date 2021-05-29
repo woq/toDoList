@@ -9,6 +9,9 @@
         <button @click="toggleFinish(item)">完成</button>
       </li>
     </ul>
+    <div><input type="text" v-model="newItem">
+      <button @click="addNewItem">添加</button>
+    </div>
   </div>
 </template>
 
@@ -18,24 +21,9 @@ export default {
   data(){
     return {
       title: "TodoList HMR",
-      items:[
-        {
-          id: 1,
-          title: '起床'
-        },
-        {
-          id: 2,
-          title: '睡觉'
-        },
-        {
-          id: 3,
-          title: '起床'
-        },
-        {
-          id: 4,
-          title: '睡觉'
-        }
-      ]
+      items: [],
+      id:0,
+      newItem: '',
     }
   },
   methods:{
@@ -45,6 +33,14 @@ export default {
           this.items.splice(index, 1);
         }
       })
+    },
+    addNewItem(){
+      this.items.push({
+        id: this.id, //id唯一,自增
+        title: this.newItem //todo title
+      })
+      this.id++; // ID自增
+      this.newItem = ''; //清空input
     }
   }
 }
