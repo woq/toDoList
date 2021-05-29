@@ -6,7 +6,7 @@
         <!--待办事项-->
         <span v-text="item.title"></span>
         <!--完成按钮-->
-        <button>完成</button>
+        <button @click="toggleFinish(item)">完成</button>
       </li>
     </ul>
   </div>
@@ -36,6 +36,15 @@ export default {
           title: '睡觉'
         }
       ]
+    }
+  },
+  methods:{
+    toggleFinish(recycleItem){
+      this.items.map((item,index)=>{
+        if (item.id === recycleItem.id){
+          this.items.splice(index, 1);
+        }
+      })
     }
   }
 }
