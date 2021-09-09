@@ -1,4 +1,5 @@
 # todolist
 - Vue3
 - Vite
-- Bootstrap *
+- sass
+- https://github.com/BurakGur/vue3-composition-api-todo-app/blob/master/src/App.vue
