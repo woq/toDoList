@@ -1,12 +1,12 @@
 <template>
   <h1>待办</h1>
   <form @submit.prevent="addTodo()">
-    <label >new ToDo</label>
+    <label >新建 ToDo</label>
     <input
         v-model="newTodo"
         name="newTodo"
         autocomplete="off"/>
-    <button>Add ToDo</button>
+    <button>添加</button>
   </form>
   <h2>列表</h2>
   <ul>
@@ -21,7 +21,7 @@
       <button @click="removeTodo(index)">Remove</button>
     </li>
   </ul>
-  <h4 v-if="todos.length === 0">Empty list.</h4>
+  <h4 v-if="todos.length === 0">全部完成!</h4>
 </template>
 
 <script>
